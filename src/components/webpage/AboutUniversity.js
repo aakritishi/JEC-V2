@@ -14,7 +14,7 @@ export default function AboutUniversity() {
               className="text-[45px] mb-[10px] "
               style={{ fontFamily: "'Merriweather', serif" }}
             >
-              About University
+              About Collage
             </h1>
           </div>
 
@@ -33,7 +33,7 @@ export default function AboutUniversity() {
               style={{ fontFamily: "'Merriweather', serif" }}
               className=" border-solid border-2 border-black text-center flex justify-content-center align-items-center p-[15px] my-4 px-4 rounded-[10px] text-[17px] "
             >
-              ABOUT UNIVERSITY
+              ABOUT COLLAGE
             </button>
             </Link>
           </div>

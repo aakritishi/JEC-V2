@@ -106,20 +106,7 @@ export default function About() {
           className="w-full max-w-[1100px] h-[380px] rounded-lg relative overflow-hidden"
           style={{ backgroundImage: `url(${about})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
         >
-          <div className="absolute inset-0 flex justify-end items-end p-4 gap-4">
-            <div className='bg-blue-600 p-4 rounded-lg text-white transition-transform transform hover:scale-105'>
-              <h1 className='text-xl font-bold'>Campus <br />Life</h1>
-              <FontAwesomeIcon icon={faArrowRightLong} className='text-2xl mt-2' />
-            </div>
-            <div className='bg-blue-600 p-4 rounded-lg text-white transition-transform transform hover:scale-105'>
-              <h1 className='text-xl font-bold'>Courses <br />Offered</h1>
-              <FontAwesomeIcon icon={faArrowRightLong} className='text-2xl mt-2' />
-            </div>
-            <div className='bg-red-600 p-4 rounded-lg text-white transition-transform transform hover:scale-105'>
-              <h1 className='text-xl font-bold'>Get an idea <br />about us</h1>
-              <FontAwesomeIcon icon={faArrowRightLong} className='text-2xl mt-2' />
-            </div>
-          </div>
+       
         </div>
       </div>
 
@@ -149,7 +136,7 @@ export default function About() {
       <div className='container mt-12'>
         <div className='flex flex-col lg:flex-row items-center'>
           <div className='lg:w-1/2 p-4'>
-            <h1 className='text-3xl font-bold text-blue-600 mb-4 transition-transform transform hover:scale-105'>Meet our President</h1>
+            <h1 className='text-3xl font-bold text-blue-600 mb-4 transition-transform transform hover:scale-105'>Meet our Principle</h1>
             <p className='mb-6 text-gray-700'>
               Emma J Coleman is the first President and founder of University. She is one of the most influential leaders in the field of education with experience spanning decades. She is now looking over the overall functioning of University and also acts as the head of the Department of Humanities.
             </p>
@@ -181,46 +168,46 @@ export default function About() {
             </div>
           </div>
           <div className='lg:w-1/2 p-4'>
-            <img src={leader} className='w-full h-auto rounded-lg shadow-lg transition-transform transform hover:scale-105' alt="President" />
+            <img src className='w-full h-auto rounded-lg shadow-lg transition-transform transform hover:scale-105' alt="President" />
           </div>
         </div>
       </div>
 
-      <div className='container mt-12'>
-        <h1 className='text-3xl font-semibold mb-6 text-blue-600'>Influential People</h1>
+      <div className='container mt-12 mb-12'>
+        <h1 className='text-3xl font-semibold mb-6 text-blue-600'>fACULTYS</h1>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-          <div className="card mx-auto transition-transform transform hover:scale-105">
+        <div className="card mx-auto transition-transform transform h-[380px] w-[330px] hover:scale-105">
             <img src="..." className="card-img-top h-64 object-cover" alt="..." />
             <div className="card-body">
               <h5 className="card-title text-2xl font-semibold text-blue-600">Card title</h5>
               <p className="text-gray-700">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <button className="mt-4 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300">EMAIL</button>
+              <button className="mt-4 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300">LEARN MORE</button>
             </div>
           </div>
 
-          <div className="card mx-auto transition-transform transform hover:scale-105">
+
+          <div className="card mx-auto transition-transform transform h-[380px] w-[330px] hover:scale-105">
             <img src="..." className="card-img-top h-64 object-cover" alt="..." />
             <div className="card-body">
               <h5 className="card-title text-2xl font-semibold text-blue-600">Card title</h5>
               <p className="text-gray-700">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <button className="mt-4 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300">EMAIL</button>
+              <button className="mt-4 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300">LEARN MORE</button>
             </div>
           </div>
 
-          <div className="card mx-auto transition-transform transform hover:scale-105">
+          <div className="card mx-auto transition-transform transform h-[380px] w-[330px] hover:scale-105">
             <img src="..." className="card-img-top h-64 object-cover" alt="..." />
             <div className="card-body">
               <h5 className="card-title text-2xl font-semibold text-blue-600">Card title</h5>
               <p className="text-gray-700">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <button className="mt-4 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300">EMAIL</button>
+              <button className="mt-4 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300">LEARN MORE</button>
             </div>
           </div>
+
         </div>
       </div>
 
-      <div className="flex justify-center items-center mb-12">
-        <img src={logo} className="h-16" alt="Logo" />
-      </div>
+     
     </>
   );
 }

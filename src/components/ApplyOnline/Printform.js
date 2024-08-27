@@ -1,174 +1,125 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
-export default function Printform() {
-  // Function to handle print
+export default function PrintForm() {
+  const [formData, setFormData] = useState({});
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchFormData = async () => {
+      try {
+        const token = localStorage.getItem('authToken');
+        const response = await axios.get('http://192.168.1.135:8000/api/application-forms/', {
+          headers: {
+            'Authorization': `Token ${token}`, 
+          },
+        });
+        const latestForm = response.data[response.data.length - 1];
+        setFormData(latestForm);
+      } catch (error) {
+        console.error('Error fetching form data:', error.response ? error.response.data : error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchFormData();
+  }, []);
+
   const handlePrint = () => {
     window.print();
   };
 
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
-    <>
-      <div className='sm:mx-[20px] md:mx-[120px] printable-area'>
-        <div className='my-12'>
-          <h1 className='text-3xl font-bold text-blue-700 text-center' style={{ fontFamily: "'Merriweather', serif" }}>
-            APPLICATION FORM
-          </h1>
-        </div>
+    <React.Fragment>
+      <div className='printable-area p-5'>
+        <div className='max-w-4xl mx-auto'>
+          <div className='text-center mb-5'>
+            <h1 className='text-2xl font-serif text-blue-600'>APPLICATION FORM</h1>
+          </div>
 
-        <form className='space-y-8'>
-          <div className='flex flex-col md:flex-row gap-8'>
-            <div className='md:w-1/2'>
-              <label className='block text-lg font-bold mb-2' style={{ fontFamily: "'Merriweather', serif" }}>
-                FULL NAME:
-                <input type='text' className='block w-full border border-blue-700 rounded-lg px-4 py-2 mt-2' />
-              </label>
-
-              <div className='mb-4'>
-                <label className='block text-lg font-bold mb-2' style={{ fontFamily: "'Merriweather', serif" }}>
-                  GENDER:
-                </label>
-                <div className='flex gap-4'>
-                  <label className='flex items-center'>
-                    <input type="radio" name="gender" value="male" className='mr-2' />
-                    MALE
-                  </label>
-                  <label className='flex items-center'>
-                    <input type="radio" name="gender" value="female" className='mr-2' />
-                    FEMALE
-                  </label>
-                  <label className='flex items-center'>
-                    <input type="radio" name="gender" value="others" className='mr-2' />
-                    OTHERS
-                  </label>
+          <div className='relative mb-8'>
+            <div className='flex flex-col gap-4'>
+              <div className='space-y-2'>
+                <div className='text-base font-serif'><strong>Full Name:</strong> {formData.full_name || 'N/A'}</div>
+                <div className='text-base font-serif'><strong>Date of Birth:</strong> {formData.date_of_birth || 'N/A'}</div>
+                <div className='text-base font-serif'><strong>Address:</strong> {formData.address || 'N/A'}</div>
+                <div className='text-base font-serif'>
+                  <strong>Gender:</strong> {formData.gender === 'M' ? 'Male' : formData.gender === 'F' ? 'Female' : formData.gender === 'O' ? 'Others' : 'N/A'}
                 </div>
+                <div className='text-base font-serif'>
+                  <strong>The Interested Course is:</strong> 
+                  {formData.interested_course === 'civil' ? 'B.E Civil' : formData.interested_course === 'computer' ? 'B.E Computer' : formData.interested_course === 'electronics' ? 'B.E Electronics' : 'N/A'}
+                </div>
+                <div className='text-base font-serif'><strong>IOE Entrance Symbol.No:</strong> {formData.ioe_roll_no || 'N/A'}</div>
+                <div className='text-base font-serif'><strong>IOE Rank:</strong> {formData.ioe_rank || 'N/A'}</div>
               </div>
-
-              <label className='block text-lg font-bold mb-2 mt-3' style={{ fontFamily: "'Merriweather', serif" }}>
-                DOB:
-                <input type='date' className='block w-full border border-blue-700 rounded-lg px-4 py-2 mt-2' />
-              </label>
-
-              <label className='block text-lg font-bold mb-2 mt-3' style={{ fontFamily: "'Merriweather', serif" }}>
-                ADDRESS:
-                <input type='text' className='block w-full border border-blue-700 rounded-lg px-4 py-2 mt-2' />
-              </label>
-            </div>
-
-            <div className='md:w-1/2 flex flex-col items-center'>
-              <label className='text-lg font-bold mb-2' style={{ fontFamily: "'Merriweather', serif" }}>
-                PHOTO
-                <input type='file' className='block border border-blue-700 rounded-lg px-4 py-2 mt-2' />
-              </label>
+              <div className='absolute top-0 right-0 w-48 h-auto'>
+                <img src={formData.photo || '/path/to/default-image.jpg'} alt="User Photo" className='w-full h-auto' />
+              </div>
             </div>
           </div>
 
-          <div className='text-center'>
-            <h1 className='text-2xl font-bold text-red-700' style={{ fontFamily: "'Merriweather', serif" }}>
-              Choose The Interested Course
-            </h1>
-            <div className='flex flex-row items-center justify-center mt-4 gap-5'>
-              <label className='flex items-center'>
-                <input type="radio" name="course" value="B.E Civil" className='mr-2' />
-                B.E Civil
-              </label>
-              <label className='flex items-center'>
-                <input type="radio" name="course" value="B.E Computer" className='mr-2' />
-                B.E Computer
-              </label>
-              <label className='flex items-center'>
-                <input type="radio" name="course" value="B.E Electronics" className='mr-2' />
-                B.E Electronics
-              </label>
+          <div className='mb-8'>
+            <h2 className='text-xl font-serif mb-3'>+2 Certificate</h2>
+            <div className='space-y-2'>
+              <div className='text-base font-serif'><strong>Transcript:</strong> <a href={formData.transcript || '#'} target="_blank" rel="noopener noreferrer" className='text-blue-600'>View Transcript</a></div>
+              <div className='text-base font-serif'><strong>Migration:</strong> <a href={formData.migration || '#'} target="_blank" rel="noopener noreferrer" className='text-blue-600'>View Migration Certificate</a></div>
+              <div className='text-base font-serif'><strong>Character:</strong> <a href={formData.character || '#'} target="_blank" rel="noopener noreferrer" className='text-blue-600'>View Character Certificate</a></div>
             </div>
           </div>
 
-          <div className='space-y-8'>
-            <div>
-              <h1 className='text-2xl font-bold' style={{ fontFamily: "'Merriweather', serif" }}>
-                IOE INFORMATION
-              </h1>
-              <div className='flex flex-col md:flex-row gap-8 mt-4'>
-                <div className='flex flex-col w-full md:w-1/2'>
-                  <label className='text-lg font-bold mb-2'>
-                    IOE ROLL.NO
-                    <input type='text' className='block w-full border border-blue-700 rounded-lg px-4 py-2 mt-2' />
-                  </label>
-                </div>
-                <div className='flex flex-col w-full md:w-1/2'>
-                  <label className='text-lg font-bold mb-2'>
-                    IOE RANK
-                    <input type='text' className='block w-full border border-blue-700 rounded-lg px-4 py-2 mt-2' />
-                  </label>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h1 className='text-2xl font-bold' style={{ fontFamily: "'Merriweather', serif" }}>
-                +2 CERTIFICATE
-              </h1>
-              <div className='flex flex-col md:flex-row gap-8 mt-4'>
-                <div className='flex flex-col w-full md:w-1/3'>
-                  <label className='text-lg font-bold mb-2'>
-                    TRANSCRIPT
-                    <input type='file' className='block border border-blue-700 rounded-lg px-4 py-2 mt-2' />
-                  </label>
-                </div>
-                <div className='flex flex-col w-full md:w-1/3'>
-                  <label className='text-lg font-bold mb-2'>
-                    MIGRATION
-                    <input type='file' className='block border border-blue-700 rounded-lg px-4 py-2 mt-2' />
-                  </label>
-                </div>
-                <div className='flex flex-col w-full md:w-1/3'>
-                  <label className='text-lg font-bold mb-2'>
-                    CHARACTER
-                    <input type='file' className='block border border-blue-700 rounded-lg px-4 py-2 mt-2' />
-                  </label>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h1 className='text-2xl font-bold' style={{ fontFamily: "'Merriweather', serif" }}>
-                UNDERTAKING AND SIGNATURE
-              </h1>
-              <p className='text-lg mt-2'>
-                <input type="checkbox" name="agreement" className='mr-2' />
-                I hereby declare that the particulars furnished in this application form are correct and true and I fully agree to whatever actions taken as per rules and regulations of JEC Kupondole if found false or incorrect.
-              </p>
-            </div>
+          <div className='mb-8'>
+            <h2 className='text-xl font-serif mb-3'>Undertaking and Signature</h2>
+            <p className='text-base font-serif'>
+              <input type="checkbox" name="agreement" checked={formData.agreement} className='mr-2' readOnly />
+              I hereby declare that the particulars furnished in this application form are correct and true and I fully agree to whatever actions taken as per rules and regulations of JEC Kupondole if found false or incorrect.
+            </p>
           </div>
 
           <div className='text-center mt-8'>
-            <button
-              type='button'
-              onClick={handlePrint}
-              className='px-6 py-3 bg-blue-700 text-white font-bold rounded-lg'
-            >
+            <button type='button' onClick={handlePrint} className='bg-blue-600 text-white py-2 px-4 rounded'>
               Print
             </button>
           </div>
-        </form>
+        </div>
       </div>
 
-      {/* Print styles */}
       <style jsx>{`
         @media print {
           body * {
             visibility: hidden;
           }
+
           .printable-area, .printable-area * {
             visibility: visible;
           }
+
           .printable-area {
             position: absolute;
             left: 0;
             top: 0;
             width: 100%;
+            margin: 0;
+            padding: 0;
+          }
+
+          .absolute {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px; /* Adjust as needed */
+          }
+
+          .text-center {
+            display: none;
           }
         }
       `}</style>
-    </>
+    </React.Fragment>
   );
 }

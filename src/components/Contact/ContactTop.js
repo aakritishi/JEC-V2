@@ -4,7 +4,7 @@ export class ContactTop extends Component {
   render() {
     return (
       <>
-        <div className="flex flex-wrap justify-center items-start w-[98%] mx-auto my-3">
+        <div className="flex flex-wrap justify-center items-start w-[88%] mx-auto my-3">
           <div className="w-full md:w-1/3 px-4 mb-8 md:mb-0 text-xl" style={{ fontFamily: "'Merriweather', serif" }}>
             <h1 className="text-2xl font-bold mb-4" style={{ fontFamily: "'Merriweather', serif" }}>Get in Touch</h1>
             <ul className="space-y-4">

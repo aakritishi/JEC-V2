@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import apply from '../images/apply.jfif';
-import { Link } from 'react-router-dom';
 
 export default function OnlineApply() {
   const [formData, setFormData] = useState({
-    fullName: '',
+    full_name: '',
     gender: '',
-    dob: '',
+    date_of_birth: '',
     address: '',
     photo: null,
-    course: '',
-    ioeRollNo: '',
-    ioeRank: '',
+    interested_course: '',
+    ioe_roll_no: '',
+    ioe_rank: '',
     transcript: null,
     migration: null,
     character: null,
@@ -19,6 +20,21 @@ export default function OnlineApply() {
   });
 
   const [errors, setErrors] = useState({});
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState(null); 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem('authToken');
+    const storedUser = localStorage.getItem('user');
+    if (token && storedUser) {
+      setIsLoggedIn(true);
+      setUser(storedUser);
+    } else {
+      setIsLoggedIn(false);
+      navigate('/login'); // Redirect to login page if not logged in
+    }
+  }, [navigate]);
 
   const handleChange = (e) => {
     const { name, value, type, checked, files } = e.target;
@@ -28,17 +44,53 @@ export default function OnlineApply() {
     });
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (validate()) {
+      if (!isLoggedIn) {
+        alert('You must be logged in to submit the form.');
+        return;
+      }
+
+      const formDataToSend = new FormData();
+      formDataToSend.append('user', user); 
+      for (const key in formData) {
+        if (formData[key] !== null && formData[key] !== '') {
+          formDataToSend.append(key, formData[key]);
+        }
+      }
+
+      try {
+        console.log(formData);
+        const token = localStorage.getItem('authToken');
+        const response = await axios.post('http://192.168.1.135:8000/api/application-forms/', formDataToSend, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+            'Authorization': `Token ${token}`,
+          },
+        });
+
+        alert('You have successfully applied.');
+        navigate('/');
+      } catch (error) {
+        console.log(error);
+        setErrors({ form: 'There was an error submitting the form. Please try again.' });
+      }
+    }
+  };
+
   const validate = () => {
     let newErrors = {};
 
-    if (!formData.fullName) newErrors.fullName = 'Full Name is required';
+    if (!formData.full_name) newErrors.full_name = 'Full Name is required';
     if (!formData.gender) newErrors.gender = 'Gender is required';
-    if (!formData.dob) newErrors.dob = 'Date of Birth is required';
+    if (!formData.date_of_birth) newErrors.date_of_birth = 'Date of Birth is required';
     if (!formData.address) newErrors.address = 'Address is required';
     if (!formData.photo) newErrors.photo = 'Photo is required';
-    if (!formData.course) newErrors.course = 'Course selection is required';
-    if (!formData.ioeRollNo) newErrors.ioeRollNo = 'IOE Roll Number is required';
-    if (!formData.ioeRank) newErrors.ioeRank = 'IOE Rank is required';
+    if (!formData.interested_course) newErrors.interested_course = 'Interested Course selection is required';
+    if (!formData.ioe_roll_no) newErrors.ioe_roll_no = 'IOE Roll Number is required';
+    if (!formData.ioe_rank) newErrors.ioe_rank = 'IOE Rank is required';
     if (!formData.transcript) newErrors.transcript = 'Transcript is required';
     if (!formData.migration) newErrors.migration = 'Migration Certificate is required';
     if (!formData.character) newErrors.character = 'Character Certificate is required';
@@ -48,27 +100,6 @@ export default function OnlineApply() {
 
     return Object.keys(newErrors).length === 0;
   };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validate()) {
-      console.log('Form submitted successfully', formData);
-      // Add form submission logic here
-    }
-  };
-  <label className='block text-lg font-bold mb-2' style={{ fontFamily: "'Merriweather', serif" }}>
-  FULL NAME:
-  <input
-    type='text'
-    name='fullName'
-    value={formData.fullName}
-    onChange={handleChange}
-    className={`block w-full border ${errors.fullName ? 'border-red-700' : 'border-blue-700'} rounded-lg px-4 py-2 mt-2`}
-    required
-  />
-  {errors.fullName && <p className='text-red-700'>{errors.fullName}</p>}
-</label>
-
 
   return (
     <div className='container mx-auto p-6'>
@@ -102,13 +133,13 @@ export default function OnlineApply() {
               FULL NAME:
               <input
                 type='text'
-                name='fullName'
-                value={formData.fullName}
+                name='full_name'
+                value={formData.full_name}
                 onChange={handleChange}
-                className='block w-full border border-blue-700 rounded-lg px-4 py-2 mt-2'
+                className={`block w-full border ${errors.full_name ? 'border-red-700' : 'border-blue-700'} rounded-lg px-4 py-2 mt-2`}
                 required
               />
-              {errors.fullName && <p className='text-red-700'>{errors.fullName}</p>}
+              {errors.full_name && <p className='text-red-700'>{errors.full_name}</p>}
             </label>
 
             <div className='mb-4'>
@@ -117,15 +148,15 @@ export default function OnlineApply() {
               </label>
               <div className='flex gap-4'>
                 <label className='flex items-center'>
-                  <input type="radio" name="gender" value="male" onChange={handleChange} className='mr-2' required />
+                  <input type="radio" name="gender" value="M" onChange={handleChange} className='mr-2' required />
                   MALE
                 </label>
                 <label className='flex items-center'>
-                  <input type="radio" name="gender" value="female" onChange={handleChange} className='mr-2' required />
+                  <input type="radio" name="gender" value="F" onChange={handleChange} className='mr-2' required />
                   FEMALE
                 </label>
                 <label className='flex items-center'>
-                  <input type="radio" name="gender" value="others" onChange={handleChange} className='mr-2' required />
+                  <input type="radio" name="gender" value="O" onChange={handleChange} className='mr-2' required />
                   OTHERS
                 </label>
               </div>
@@ -133,16 +164,16 @@ export default function OnlineApply() {
             </div>
 
             <label className='block text-lg font-bold mb-2' style={{ fontFamily: "'Merriweather', serif" }}>
-              DOB:
+              DATE OF BIRTH:
               <input
                 type='date'
-                name='dob'
-                value={formData.dob}
+                name='date_of_birth'
+                value={formData.date_of_birth}
                 onChange={handleChange}
                 className='block w-full border border-blue-700 rounded-lg px-4 py-2 mt-2'
                 required
               />
-              {errors.dob && <p className='text-red-700'>{errors.dob}</p>}
+              {errors.date_of_birth && <p className='text-red-700'>{errors.date_of_birth}</p>}
             </label>
 
             <label className='block text-lg font-bold mb-2 mt-3' style={{ fontFamily: "'Merriweather', serif" }}>
@@ -176,23 +207,23 @@ export default function OnlineApply() {
 
         <div className='text-center'>
           <h1 className='text-2xl font-bold text-red-700' style={{ fontFamily: "'Merriweather', serif" }}>
-            Choose The Interested Course
+            Choose The Interested interested_course
           </h1>
           <div className='flex flex-row items-center justify-center mt-4 gap-5'>
             <label className='flex items-center'>
-              <input type="radio" name="course" value="B.E Civil" onChange={handleChange} className='mr-2' required />
+              <input type="radio" name="interested_course" value="civil" onChange={handleChange} className='mr-2' required />
               B.E Civil
             </label>
             <label className='flex items-center'>
-              <input type="radio" name="course" value="B.E Computer" onChange={handleChange} className='mr-2' required />
+              <input type="radio" name="interested_course" value="computer" onChange={handleChange} className='mr-2' required />
               B.E Computer
             </label>
             <label className='flex items-center'>
-              <input type="radio" name="course" value="B.E Electronics" onChange={handleChange} className='mr-2' required />
+              <input type="radio" name="interested_course" value="electronics" onChange={handleChange} className='mr-2' required />
               B.E Electronics
             </label>
           </div>
-          {errors.course && <p className='text-red-700'>{errors.course}</p>}
+          {errors.interested_course && <p className='text-red-700'>{errors.interested_course}</p>}
         </div>
 
         <div className='space-y-8'>
@@ -206,13 +237,13 @@ export default function OnlineApply() {
                   IOE ROLL.NO
                   <input
                     type='text'
-                    name='ioeRollNo'
-                    value={formData.ioeRollNo}
+                    name='ioe_roll_no'
+                    value={formData.ioe_roll_no}
                     onChange={handleChange}
                     className='block w-full border border-blue-700 rounded-lg px-4 py-2 mt-2'
                     required
                   />
-                  {errors.ioeRollNo && <p className='text-red-700'>{errors.ioeRollNo}</p>}
+                  {errors.ioe_roll_no && <p className='text-red-700'>{errors.ioe_roll_no}</p>}
                 </label>
               </div>
               <div className='flex flex-col w-full md:w-1/2'>
@@ -220,13 +251,13 @@ export default function OnlineApply() {
                   IOE RANK
                   <input
                     type='text'
-                    name='ioeRank'
-                    value={formData.ioeRank}
+                    name='ioe_rank'
+                    value={formData.ioe_rank}
                     onChange={handleChange}
                     className='block w-full border border-blue-700 rounded-lg px-4 py-2 mt-2'
                     required
                   />
-                  {errors.ioeRank && <p className='text-red-700'>{errors.ioeRank}</p>}
+                  {errors.ioe_rank && <p className='text-red-700'>{errors.ioe_rank}</p>}
                 </label>
               </div>
             </div>
@@ -299,6 +330,7 @@ export default function OnlineApply() {
 
           <div className='text-center'>
             <button
+              type='submit'
               className='bg-red-700 text-white py-3 px-6 rounded-lg text-xl hover:bg-red-800 transition duration-300'
               style={{ fontFamily: "'Merriweather', serif" }}
             >
@@ -306,6 +338,7 @@ export default function OnlineApply() {
             </button>
             <Link to='/printForm'>
               <button
+                type='button'
                 className='bg-red-700 text-white py-3 ms-4 px-6 rounded-lg text-xl hover:bg-red-800 transition duration-300'
                 style={{ fontFamily: "'Merriweather', serif" }}
               >
