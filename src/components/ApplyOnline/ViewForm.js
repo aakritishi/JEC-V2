@@ -14,7 +14,7 @@ export default function ViewForm() {
     const fetchFormData = async () => {
       try {
         const token = localStorage.getItem('authToken');
-        const response = await axios.get('http://192.168.1.135:8000/api/application-forms/', {
+        const response = await axios.get('jec.edu.np/api/application-forms/', {
           headers: { Authorization: `Token ${token}` },
         });
 
@@ -56,7 +56,7 @@ export default function ViewForm() {
     try {
       const token = localStorage.getItem('authToken');
       const formId = formData.id; // Ensure you have the form ID to update
-      const response = await axios.patch(`http://192.168.1.135:8000/api/application-forms/${formId}/`, formDataToSend, {
+      const response = await axios.patch(`jec.edu.np/api/application-forms/${formId}/`, formDataToSend, {
         headers: {
           Authorization: `Token ${token}`,
           'Content-Type': 'multipart/form-data',

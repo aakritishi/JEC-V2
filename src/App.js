@@ -13,15 +13,17 @@ import ExploreEvent from "./components/webpage/Events/ExploreEvent";
 import LearnMore from "./components/Facilities/LearnMore";
 import Academics from "./components/About/Academics/Academics";
 import Alearmore from "./components/About/Academics/AcademicLearnMore";
-import OnlineApply from "./components/ApplyOnline/OnlineApply";
+// import OnlineApply from "./components/ApplyOnline/OnlineApply";
+import ApplyOnline from "./components/ApplyOnline/OnlineApply";
 import Printform from "./components/ApplyOnline/Printform";
 import PrivacyPolicy from "./components/Privacy Policy/PrivacyPolicy";
 import Admission from "./components/Admission/Admission";
 import Introduction from "./components/About/Introduction";
 import JECadvisory from "./components/About/JECadvisoryBoard";
 import Teachers from "./components/About/Teachers";
-import Signup from "./components/webpage/forms/Signup";
-import Login from "./components/webpage/forms/Login";
+import Signup from "./components/webpage/forms/signup";
+// // import Login from "./components/webpage/forms/Login";
+import Login from "./components/webpage/forms/login"
 import ViewForm from "./components/ApplyOnline/ViewForm";
 import AdminHome from "./components/Admin/AdminHome";
 import ApplicationStatus from "./components/Admin/ApplicationStatus";
@@ -44,7 +46,7 @@ function App() {
           <Route path="/learnMore" element={<LearnMore />} />
           <Route path="/about/courses-offered" element={<Academics />} />
           <Route path="/alearnmore" element={<Alearmore />} />
-          <Route path="/onlineApply" element={<OnlineApply />} />
+          <Route path="/applyOnline" element={<ApplyOnline />} />
           <Route path="/privacypolicy" element={<PrivacyPolicy />} />
           <Route path="/admission" element={<Admission />} />
           <Route path="/about/introduction" element={<Introduction />} />
@@ -52,6 +54,7 @@ function App() {
           <Route path="/teachers" element={<Teachers />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
+     
           {/* private routing for admin panel */}
           <Route element={<PrivateRoute isStaff={true} />}>
             <Route path="/admin/adminhome" element={<AdminHome />} />

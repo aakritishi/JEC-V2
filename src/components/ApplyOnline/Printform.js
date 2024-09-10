@@ -18,7 +18,7 @@ export default function PrintForm() {
           throw new Error("Unauthorized access");
         }
 
-        const response = await axios.get(`http://192.168.1.135:8000/api/application-forms/${formId}/`, {
+        const response = await axios.get(`jec.edu.np/api/application-forms/${formId}/`, {
           headers: {
             'Authorization': `Token ${token}`,
           },
