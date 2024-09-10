@@ -6,6 +6,7 @@ import AboutUniversity from "./AboutUniversity";
 import Course from "./Course";
 import Cardslider from "./Cardslider";
 import LatestUpdate from "./LatestUpdate";
+import MainEvent from "./Events/MainEvent"
 
 export const Home = () => {
   return (
@@ -13,6 +14,7 @@ export const Home = () => {
       <IntroductionSection />
       <Updates />
       <LatestUpdate />
+      <MainEvent/>
       <Events />
       <AboutUniversity />
       <ImageSlider />
