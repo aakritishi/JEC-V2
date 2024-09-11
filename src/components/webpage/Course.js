@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 export default function Course() {
   return (
-    <div className="container mx-auto mt-12">
+    <div className="container pb-2 mx-auto my-12">
        <div>
     <div className="container">
         <div className="row">
