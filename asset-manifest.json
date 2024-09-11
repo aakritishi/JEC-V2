@@ -1,9 +1,10 @@
 {
   "files": {
-    "main.js": "/JEC-V2/static/js/main.e4b016df.js",
+    "main.js": "/JEC-V2/static/js/main.ceb483b1.js",
     "static/js/453.ed3810f9.chunk.js": "/JEC-V2/static/js/453.ed3810f9.chunk.js",
     "static/media/jec.mp4": "/JEC-V2/static/media/jec.af1ec883ff870b151398.mp4",
     "static/media/jec-about.png": "/JEC-V2/static/media/jec-about.9b474afc330b95fa309d.png",
+    "static/media/chairman.jpg": "/JEC-V2/static/media/chairman.55fc226062283eba507d.jpg",
     "static/media/electronics.jpg": "/JEC-V2/static/media/electronics.058ce2e85fb92a92d725.jpg",
     "static/media/jec-teachers.jpg": "/JEC-V2/static/media/jec-teachers.c91b56b19cf53852abf8.jpg",
     "static/media/events.png": "/JEC-V2/static/media/events.f079ac689abb254ab650.png",
@@ -14,6 +15,7 @@
     "static/media/jec-logo.png": "/JEC-V2/static/media/jec-logo.3f82a3ed3c5606dfd30e.png",
     "static/media/student.png": "/JEC-V2/static/media/student.0f2ebbf5b9d7f6548f11.png",
     "static/media/jec-students.jpg": "/JEC-V2/static/media/jec-students.32679ac81e09cd194829.jpg",
+    "static/media/sagarP.png": "/JEC-V2/static/media/sagarP.324467a4486912f30773.png",
     "static/media/civil.jpg": "/JEC-V2/static/media/civil.b3beb888742908be92e1.jpg",
     "static/media/ram.jpg": "/JEC-V2/static/media/ram.41eee05de7c40e1d1e88.jpg",
     "static/media/bhim.jpg": "/JEC-V2/static/media/bhim.b40e3bcc4c68624be427.jpg",
@@ -32,10 +34,10 @@
     "static/media/counselling.jpg": "/JEC-V2/static/media/counselling.abd97c0a8188ac39af1e.jpg",
     "static/media/requirements.jfif": "/JEC-V2/static/media/requirements.9f95b63519da10de50cc.jfif",
     "index.html": "/JEC-V2/index.html",
-    "main.e4b016df.js.map": "/JEC-V2/static/js/main.e4b016df.js.map",
+    "main.ceb483b1.js.map": "/JEC-V2/static/js/main.ceb483b1.js.map",
     "453.ed3810f9.chunk.js.map": "/JEC-V2/static/js/453.ed3810f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.e4b016df.js"
+    "static/js/main.ceb483b1.js"
   ]
 }
