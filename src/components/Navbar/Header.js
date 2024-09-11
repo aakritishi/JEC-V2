@@ -147,6 +147,26 @@ export const Header = () => {
                     <li><Link to='/admission' className="text-xl text-white transition duration-300 hover:text-gray-300">Admission</Link></li>
                     <li><Link to='/news' className="text-xl text-white transition duration-300 hover:text-gray-300">News & Updates</Link></li>
                     <li><Link to='/contact-us' className="text-xl text-white transition duration-300 hover:text-gray-300">Contact</Link></li>
+                    <div className="flex items-center gap-4">
+        {isLoggedIn ? (
+            <Link to='/onlineApply'>
+                <button
+                    className="px-4 py-2 text-sm text-white transition duration-300 bg-blue-600 rounded-lg shadow-md md:text-base hover:bg-blue-700 hover:shadow-lg focus:outline-none"
+                >
+                    Apply Online
+                </button>
+            </Link>
+        ) : (
+            <Link to='/login'>
+                <button
+                    className="px-4 py-2 text-sm text-white transition duration-300 bg-blue-600 rounded-lg shadow-md md:text-base hover:bg-blue-700 hover:shadow-lg focus:outline-none"
+                >
+                    Login
+                </button>
+            </Link>
+        )}
+        {isAdmin && <Link to="/admin/adminhome" className='text-xl text-white transition duration-300 hover:text-gray-300'>Admin</Link>}
+    </div>
                     {isAdmin && <li><Link to="/admin/adminhome" className='text-xl text-white transition duration-300 hover:text-gray-300'>Admin</Link></li>}
                 </ul>
             </div>

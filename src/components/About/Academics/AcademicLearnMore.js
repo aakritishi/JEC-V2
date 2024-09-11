@@ -68,9 +68,9 @@ export default function AcademicLearnMore() {
         <h1 className='text-[40px] font-bold'>COURSE <span className='text-red-500'>STRUCTURE</span></h1>
       </div>
 
-          <Civil/>  
+          {/* <Civil/>  
           <Computer/>
-          <Electronics/>  
+          <Electronics/>   */}
 
 
 

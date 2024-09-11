@@ -28,7 +28,7 @@ export default function Computer() {
               <span className='text-[18px] text-gray-600 block'>- 18 credit hours</span>
             </h1>
             <ul className='text-[20px] space-y-2'>
-              {['Basic Electrical Engineering', 'Engineering Chemistry', 'Engineering Drawing II', 'Basic Mathematics II', 'Fundamentails of Thermodynamics And Head Transfer', 'Workshop  Technology'].map(course => (
+              {['Basic Electronics Engineering', 'Engineering Chemistry', 'Engineering Drawing II', 'Basic Mathematics II', 'Fundamentails of Thermodynamics And Head Transfer', 'Workshop  Technology'].map(course => (
                 <li key={course} className='p-2 transition-all rounded-lg hover:bg-gray-100'>
                   <span className='font-bold me-2'>I/II</span> {course}
                 </li>
