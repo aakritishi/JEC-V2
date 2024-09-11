@@ -3,6 +3,9 @@ import CountUp from "react-countup";
 import students from "../images/jec-students.jpg";
 import about from "../images/jec-about.png";
 import leader from "../images/student.png";
+import principle from "../images/sagarP.png";
+import Chairman from "../images/chairman.jpg"
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightLong } from "@fortawesome/free-solid-svg-icons";
 import logo from "../images/jec-logo.png";
@@ -64,12 +67,12 @@ export default function Introduction() {
   return (
     <>
       <div
-        className="container mx-auto px-4 py-8"
+        className="container px-4 py-8 mx-auto"
         style={{ fontFamily: "'Merriweather', serif" }}
       >
         <div className="sm:mx-0 md:mx-6 lg:mx-16">
           <div className="my-3">
-            <h1 className="text-xl md:text-2xl lg:text-3xl leading-relaxed font-semibold text-blue-600 transition-transform transform text-justify">
+            <h1 className="text-xl font-semibold leading-relaxed text-justify text-blue-600 transition-transform transform md:text-2xl lg:text-3xl">
               We are a research institution focused on providing massive <br />
               opportunities through value education. University is one of the
               <br />
@@ -78,8 +81,8 @@ export default function Introduction() {
           </div>
           <br />
           <div className="flex flex-col gap-6 md:flex-row md:gap-12">
-            <div className="md:w-7/12 w-full text-justify">
-              <p className="text-base md:text-lg leading-relaxed text-gray-700">
+            <div className="w-full text-justify md:w-7/12">
+              <p className="text-base leading-relaxed text-gray-700 md:text-lg">
                 Our impact on individuals, our region, and the world is profound
                 whether we are launching young people into a boundless future or
                 confronting the grand challenges of our time through undaunted
@@ -96,7 +99,7 @@ export default function Introduction() {
                 journey.
               </p>
             </div>
-            <div className="md:w-5/12 w-full">
+            <div className="w-full md:w-5/12">
               <img
                 src={students}
                 className="rounded-lg border-2 border-blue-500 shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out h-auto w-full md:w-[400px] lg:w-[500px] transform hover:scale-105"
@@ -107,7 +110,7 @@ export default function Introduction() {
         </div>
       </div>
 
-      <div className="flex justify-center items-center mb-8 mt-24">
+      <div className="flex items-center justify-center mt-24 mb-8">
         <div
           className="w-full max-w-[1100px] h-[380px] rounded-lg relative overflow-hidden"
           style={{
@@ -119,9 +122,9 @@ export default function Introduction() {
       </div>
 
       <div className="container mb-12">
-        <div className="flex flex-col md:flex-row items-center justify-center text-center">
+        <div className="flex flex-col items-center justify-center text-center md:flex-row">
           <div
-            className="md:w-1/3 p-4 transition-transform transform hover:scale-105"
+            className="p-4 transition-transform transform md:w-1/3 hover:scale-105"
             ref={countersRef.students}
           >
             <h1 className="text-4xl font-bold text-blue-600">
@@ -131,10 +134,10 @@ export default function Introduction() {
                 "0"
               )}
             </h1>
-            <p className="text-lg mt-2 text-gray-700">STUDENTS</p>
+            <p className="mt-2 text-lg text-gray-700">STUDENTS</p>
           </div>
           <div
-            className="md:w-1/3 p-4 transition-transform transform hover:scale-105"
+            className="p-4 transition-transform transform md:w-1/3 hover:scale-105"
             ref={countersRef.professors}
           >
             <h1 className="text-4xl font-bold text-blue-600">
@@ -144,90 +147,107 @@ export default function Introduction() {
                 "0"
               )}
             </h1>
-            <p className="text-lg mt-2 text-gray-700">PROFESSORS</p>
+            <p className="mt-2 text-lg text-gray-700">PROFESSORS</p>
           </div>
-          {/* <div className='md:w-1/3 p-4 transition-transform transform hover:scale-105' ref={countersRef.startups}>
+          {/* <div className='p-4 transition-transform transform md:w-1/3 hover:scale-105' ref={countersRef.startups}>
             <h1 className="text-4xl font-bold text-blue-600">
               {countersInView.startups ? <CountUp end={50} duration={2} /> : '0'}
             </h1>
-            <p className="text-lg mt-2 text-gray-700">STARTUPS</p>
+            <p className="mt-2 text-lg text-gray-700">STARTUPS</p>
           </div> */}
         </div>
       </div>
 
-      <div className="container mx-auto p-4">
-        {/* Principle Section */}
-        <div className="flex flex-col lg:flex-row lg:items-center gap-12 mb-12">
+      <div className="container p-4 mx-auto">
+        
+        {/* Chairperson Section */}
+        <div className="flex flex-col-reverse gap-12 lg:flex-row lg:items-center">
+          {/* Image Section */}
+          <div className="p-4 lg:w-1/2">
+            <img
+              src={Chairman}
+              className="w-full h-full  transition-transform transform rounded-lg shadow-2xl hover:scale-105 hover:shadow-xl md:h-[600px] md:w-[600px]"
+              alt="President"
+            />
+          </div>
+
           {/* Text Section */}
-          <div className="lg:w-1/2 p-4">
-            <h1 className="text-3xl font-bold text-blue-600 mb-4 transition-transform transform hover:scale-105">
-              Meet Our Principal
+          <div className="p-4 lg:w-1/2">
+            <h1 className="mb-4 text-3xl font-bold text-blue-600 transition-transform transform hover:scale-105">
+              Message from Our Chairperson
             </h1>
-            <p className="mb-6 text-gray-950 text-justify">
-              Emma J Coleman is the first President and founder of University. She is one of the most influential leaders in the field of education with experience spanning decades. She is now looking over the overall functioning of University and also acts as the head of the Department of Humanities.
-            </p>
+            <p className="mb-6 text-justify text-gray-950">
+            Dear Students, Faculty, and Esteemed Visitors,
+
+It gives me great pleasure to welcome you to Janakpur Engineering Campus (JEC), an esteemed institution affiliated with Tribhuvan University (TU). At JEC, we are committed to delivering high-quality education in engineering, empowering our students to excel in their fields and contribute to the nation's development. We offer undergraduate programs in Bachelor of Civil Engineering (BCE), Bachelor of Computer Engineering (BCT), and Bachelor of Electronics, Communication, and Information Engineering (BEX).
+<br/>
+With a focus on academic rigor, innovation, and holistic growth, we strive to cultivate an environment where students can thrive and achieve their full potential.
+<br/>
+Best regards,<br/>
+Dr. Arjun Sing<br/>
+Chairperson, Janakpur Engineering Campus
+</p>
+          </div>
+        </div>
+        {/* Principle Section */}
+        <div className="flex flex-col gap-12 mb-12 lg:flex-row lg:items-center">
+          {/* Text Section */}
+          <div className="p-4 lg:w-1/2">
+            <h1 className="mb-4 text-3xl font-bold text-blue-600 transition-transform transform hover:scale-105">
+              Message From Our Principal
+            </h1>
+            <p className="mb-6 text-justify text-gray-950">
+            Dear Students, Faculty, and Visitors,
+
+Welcome to Janakpur Engineering Campus (JEC), a prestigious institution affiliated with Tribhuvan University (TU). We are dedicated to providing quality education in engineering, fostering innovation, and nurturing future leaders. At JEC, we offer diverse courses in Bachelor of Civil Engineering (BCE), Bachelor of Computer Engineering (BCT), and Bachelor of Electronics, Communication, and Information Engineering (BEX).
+<br/>
+Our commitment to excellence extends beyond academics, with a focus on research, practical skills, and overall student development. Together, let’s build a brighter future.
+<br/>
+Best regards,<br/>
+Er. Sagar Shrestha<br/>
+Principal, Janakpur Engineering Campus
+</p>
           </div>
           
           {/* Image Section */}
-          <div className="lg:w-1/2 p-4">
+          <div className="p-4 lg:w-1/2">
             <img
-              src={leader}
-              className="w-full h-auto rounded-lg shadow-2xl transition-transform transform hover:scale-105 hover:shadow-xl"
+              src={principle}
+              className="w-full h-auto transform rounded-lg shadow-2xl md trawnsition-transform md:h-[500px] md:w-[600px] hover:scale-105 hover:shadow-xl"
               alt="President"
             />
           </div>
         </div>
 
-        {/* Chairperson Section */}
-        <div className="flex flex-col-reverse lg:flex-row lg:items-center gap-12">
-          {/* Image Section */}
-          <div className="lg:w-1/2 p-4">
-            <img
-              src={leader}
-              className="w-full h-auto rounded-lg shadow-2xl transition-transform transform hover:scale-105 hover:shadow-xl"
-              alt="President"
-            />
-          </div>
-
-          {/* Text Section */}
-          <div className="lg:w-1/2 p-4">
-            <h1 className="text-3xl font-bold text-blue-600 mb-4 transition-transform transform hover:scale-105">
-              Meet Our Chairperson
-            </h1>
-            <p className="mb-6 text-gray-950 text-justify">
-              Emma J Coleman is the first President and founder of University. She is one of the most influential leaders in the field of education with experience spanning decades. She is now looking over the overall functioning of University and also acts as the head of the Department of Humanities.
-            </p>
-          </div>
-        </div>
       </div>
 
 
 
       {/* <div className='container mt-12 mb-12'>
-        <h1 className='text-3xl font-semibold mb-6 text-blue-600'>FACULTY</h1>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+        <h1 className='mb-6 text-3xl font-semibold text-blue-600'>FACULTY</h1>
+        <div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3'>
           <div className="card mx-auto transition-transform transform h-[380px] w-[330px] hover:scale-105">
-            <img src="..." className="card-img-top h-64 object-cover" alt="..." />
+            <img src="..." className="object-cover h-64 card-img-top" alt="..." />
             <div className="card-body">
-              <h5 className="card-title text-2xl font-semibold text-blue-600">Card title</h5>
+              <h5 className="text-2xl font-semibold text-blue-600 card-title">Card title</h5>
               <p className="text-gray-700">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <button className="mt-4 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300">LEARN MORE</button>
+              <button className="px-4 py-2 mt-4 text-white transition duration-300 bg-blue-600 rounded-lg hover:bg-blue-700">LEARN MORE</button>
             </div>
           </div>
           <div className="card mx-auto transition-transform transform h-[380px] w-[330px] hover:scale-105">
-            <img src="..." className="card-img-top h-64 object-cover" alt="..." />
+            <img src="..." className="object-cover h-64 card-img-top" alt="..." />
             <div className="card-body">
-              <h5 className="card-title text-2xl font-semibold text-blue-600">Card title</h5>
+              <h5 className="text-2xl font-semibold text-blue-600 card-title">Card title</h5>
               <p className="text-gray-700">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <button className="mt-4 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300">LEARN MORE</button>
+              <button className="px-4 py-2 mt-4 text-white transition duration-300 bg-blue-600 rounded-lg hover:bg-blue-700">LEARN MORE</button>
             </div>
           </div>
           <div className="card mx-auto transition-transform transform h-[380px] w-[330px] hover:scale-105">
-            <img src="..." className="card-img-top h-64 object-cover" alt="..." />
+            <img src="..." className="object-cover h-64 card-img-top" alt="..." />
             <div className="card-body">
-              <h5 className="card-title text-2xl font-semibold text-blue-600">Card title</h5>
+              <h5 className="text-2xl font-semibold text-blue-600 card-title">Card title</h5>
               <p className="text-gray-700">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <button className="mt-4 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300">LEARN MORE</button>
+              <button className="px-4 py-2 mt-4 text-white transition duration-300 bg-blue-600 rounded-lg hover:bg-blue-700">LEARN MORE</button>
             </div>
           </div>
         </div>
