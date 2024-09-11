@@ -9,7 +9,7 @@ export default function Teachers() {
     const fetchTeachers = async () => {
       try {
         const token = localStorage.getItem('authToken');
-        const response = await axios.get('jec.edu.np/api/teachers/', {
+        const response = await axios.get('https://jec.edu.np/api/teachers/', {
             headers: { Authorization: `Token ${token}` },
           });
         setTeachers(response.data);
@@ -24,12 +24,12 @@ export default function Teachers() {
   return (
     <div className='sm:mx-4 md:mx-12 lg:mx-24 xl:mx-32 mb-5 w-[90%] mx-auto'>
       <section className='mt-8 mb-12'>
-        <h1 className='text-3xl md:text-4xl lg:text-5xl text-red-600 font-semibold text-center transition-all duration-500 hover:text-red-800'>
+        <h1 className='text-3xl font-semibold text-center text-red-600 transition-all duration-500 md:text-4xl lg:text-5xl hover:text-red-800'>
           JEC'S FACULTY
         </h1>
         <div className='mt-6 md:mt-10'>
-          <div className='flex flex-col md:flex-row items-center justify-between'>
-            <p className='text-base md:text-lg lg:text-xl font-serif text-gray-800 leading-relaxed'>
+          <div className='flex flex-col items-center justify-between md:flex-row'>
+            <p className='font-serif text-base leading-relaxed text-gray-800 md:text-lg lg:text-xl'>
               The teachers at Janakpur Engineering College are instrumental in shaping the future of engineering...
             </p>
             <img src={teacherImagePlaceholder} className='mt-6 md:mt-0 md:ml-6 h-[300px] w-full md:w-1/2 rounded-lg shadow-lg transition-transform duration-500 transform hover:scale-105' alt="Teachers" />
@@ -38,18 +38,18 @@ export default function Teachers() {
       </section>
 
       <section className='my-16'>
-        <h1 className='text-3xl md:text-4xl lg:text-5xl text-red-600 font-semibold text-center transition-all duration-500 hover:text-red-800'>
+        <h1 className='text-3xl font-semibold text-center text-red-600 transition-all duration-500 md:text-4xl lg:text-5xl hover:text-red-800'>
           Our Teachers
         </h1>
         <div className='mt-12'>
-          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
+          <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3'>
             {teachers.length > 0 ? (
               teachers.map((teacher, index) => (
                 <div className='flex justify-center' key={index}>
-                  <div className="card bg-white rounded-lg shadow-lg transition-all duration-500 hover:shadow-2xl hover:scale-105 w-64 h-80">
+                  <div className="w-64 transition-all duration-500 bg-white rounded-lg shadow-lg card hover:shadow-2xl hover:scale-105 h-80">
                     <img 
                       src={teacher.photo || "https://via.placeholder.com/150"} 
-                      className="rounded-t-lg w-full h-48 object-cover" 
+                      className="object-cover w-full h-48 rounded-t-lg" 
                       alt="Teacher" 
                     />
                     <div className="p-4">

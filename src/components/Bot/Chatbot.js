@@ -33,7 +33,7 @@ export default function Chatbot() {
       setInput("");
 
       try {
-        const response = await fetch("jec.edu.np/api/chatbot/", {
+        const response = await fetch("https://jec.edu.np/api/chatbot/", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

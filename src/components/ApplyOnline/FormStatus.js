@@ -8,7 +8,7 @@ export default function FormStatus() {
     const fetchFormData = async () => {
       try {
         const token = localStorage.getItem('authToken');
-        const response = await axios.get('jec.edu.np/api/application-forms/', {
+        const response = await axios.get('https://jec.edu.np/api/application-forms/', {
           headers: {
             'Authorization': `Token ${token}`,
           },

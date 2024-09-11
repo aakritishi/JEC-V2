@@ -13,23 +13,23 @@ const coursesData = [
     img: computer,
     title: "Bachelor of Computer Engineering (BCE)",
     description: "Detailed description about Computer Engineering.",
-    route: "/alearnmore",
-    link: "/alearnmore",
+    route: "/Computer-learn-more",
+    link: "/Computer-learn-more",
   },
   {
     img: civil,
     title: "Bachelor of Civil Engineering (BCT)",
     description: "Detailed description about Civil Engineering.",
-    route: "/alearnmore",
-    link: "/alearnmore",
+    route: "/Civil-learn-more",
+    link: "/Civil-learn-more",
   },
   {
     img: electronics,
     title: "Bachelor of Electronics and Information Engineering (BEI)",
     description:
       "Detailed description about Electronics and Information Engineering.",
-    route: "/alearnmore",
-    link: "/alearnmore",
+    route: "/Electronics-learn-more",
+    link: "/Electronics-learn-more",
   },
 ];
 

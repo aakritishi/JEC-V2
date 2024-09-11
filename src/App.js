@@ -30,6 +30,9 @@ import ApplicationStatus from "./components/Admin/ApplicationStatus";
 import FormStatus from "./components/ApplyOnline/FormStatus";
 import PrivateRoute from "./components/Admin/AdminRoute";
 import AddTeam from "./components/Admin/AddTeam";
+import CivilLearnMore from "./components/About/Academics/CivilLearnmore";
+import EletronicsLearnMore from "./components/About/Academics/ElectronicsLernMore";
+import ComputerLearnMore from "./components/About/Academics/ComputerLeranMore";
 function App() {
   return (
     <HashRouter>
@@ -54,6 +57,9 @@ function App() {
           <Route path="/teachers" element={<Teachers />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/Civil-learn-more" element={<CivilLearnMore />} />
+          <Route path="/Electronics-learn-more" element={<EletronicsLearnMore />} />
+          <Route path="/Computer-Learn-more" element={<ComputerLearnMore />} />
      
           {/* private routing for admin panel */}
           <Route element={<PrivateRoute isStaff={true} />}>
