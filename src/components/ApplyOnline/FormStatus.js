@@ -45,7 +45,7 @@ export default function FormStatus() {
             <div className="w-full mb-4 lg:w-2/3 lg:pr-8 lg:mb-0">
               <div className="space-y-2">
                 <div className="font-serif text-base">
-                  <strong>Full Name:</strong> {formData.full_name || 'N/A'}
+                  <strong>Full Name: </strong> {formData.full_name || 'N/A'}
                 </div>
                 <div className="font-serif text-base">
                   <strong>Date of Birth:</strong> {formData.date_of_birth || 'N/A'}
@@ -90,7 +90,7 @@ export default function FormStatus() {
               </div>
               <div className="font-serif text-base">
                 <strong>Migration:</strong>{' '}
-                <a href={formData.migration || '#'} target="_blank" rel="noopener noreferrer" className="text-blue-600">
+                <a href={formData.migration || '#' } target="_blank" rel="noopener noreferrer" className="text-blue-600">
                   View Migration Certificate
                 </a>
               </div>

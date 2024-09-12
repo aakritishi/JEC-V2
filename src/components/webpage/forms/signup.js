@@ -119,7 +119,10 @@ const Signup = () => {
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="password" className="block text-gray-950">Password</label>
+          <label htmlFor="password" className="block text-gray-950"> <span className='flex gap-2'>
+          Password
+          <p className='text-sm text-red-500'>(PLEASE DO NOT USE COMMON PASSWORD)</p>
+             </span> </label>
           <input
             type="password"
             name="password"
