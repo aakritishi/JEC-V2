@@ -74,9 +74,16 @@ export default function ComputerLearnMore() {
 
 
 
-      <div className='flex items-center justify-center mt-4 mb-4'>
-        <Link to="/onlineApply" className="px-4 py-2 text-[30px] text-white bg-blue-500 hover:bg-blue-700 rounded">Apply Now</Link>
-      </div>
+          <div className='flex items-center justify-center mt-4 mb-4'>
+          <Link to='/applyOnline'>
+                <button
+                    className="px-4 py-2 text-sm text-white transition duration-300 bg-blue-600 rounded-lg shadow-md md:text-base hover:bg-blue-700 hover:shadow-lg focus:outline-none"
+                >
+                    Apply Online
+                </button>
+            </Link>
+</div>
+
     </>
   );
 }

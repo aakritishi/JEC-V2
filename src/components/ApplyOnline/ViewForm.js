@@ -14,7 +14,7 @@ export default function ViewForm() {
     const fetchFormData = async () => {
       try {
         const token = localStorage.getItem('authToken');
-        const response = await axios.get('jec.edu.np/api/application-forms/', {
+        const response = await axios.get('https://jec.edu.np/api/application-forms/', {
           headers: { Authorization: `Token ${token}` },
         });
 
@@ -96,17 +96,17 @@ export default function ViewForm() {
   }
 
   return (
-    <div className='flex justify-center items-center min-h-screen p-5'>
+    <div className='flex items-center justify-center min-h-screen p-5'>
       <div className='w-full max-w-lg sm:w-full md:max-w-2xl'>
-        <div className='text-center md:text-left mb-5'>
-          <h1 className='text-2xl font-serif text-blue-600'>VIEW AND EDIT APPLICATION FORM</h1>
+        <div className='mb-5 text-center md:text-left'>
+          <h1 className='font-serif text-2xl text-blue-600'>VIEW AND EDIT APPLICATION FORM</h1>
         </div>
 
         <div className='relative mb-8'>
           <div className='flex flex-col gap-4'>
             <div className='space-y-2'>
               {/* Full Name */}
-              <div className='text-base font-serif'>
+              <div className='font-serif text-base'>
                 <strong>Full Name:</strong>
                 {isEditing ? (
                   <input
@@ -114,7 +114,7 @@ export default function ViewForm() {
                     name='full_name'
                     value={formData.full_name || ''}
                     onChange={handleChange}
-                    className='border rounded p-1 ml-2 w-full'
+                    className='w-full p-1 ml-2 border rounded'
                   />
                 ) : (
                   ` ${formData.full_name || 'N/A'}`
@@ -122,7 +122,7 @@ export default function ViewForm() {
               </div>
 
               {/* Date of Birth */}
-              <div className='text-base font-serif'>
+              <div className='font-serif text-base'>
                 <strong>Date of Birth:</strong>
                 {isEditing ? (
                   <input
@@ -130,7 +130,7 @@ export default function ViewForm() {
                     name='date_of_birth'
                     value={formData.date_of_birth || ''}
                     onChange={handleChange}
-                    className='border rounded p-1 ml-2 w-full'
+                    className='w-full p-1 ml-2 border rounded'
                   />
                 ) : (
                   ` ${formData.date_of_birth || 'N/A'}`
@@ -138,7 +138,7 @@ export default function ViewForm() {
               </div>
 
               {/* Address */}
-              <div className='text-base font-serif'>
+              <div className='font-serif text-base'>
                 <strong>Address:</strong>
                 {isEditing ? (
                   <input
@@ -146,7 +146,7 @@ export default function ViewForm() {
                     name='address'
                     value={formData.address || ''}
                     onChange={handleChange}
-                    className='border rounded p-1 ml-2 w-full'
+                    className='w-full p-1 ml-2 border rounded'
                   />
                 ) : (
                   ` ${formData.address || 'N/A'}`
@@ -154,14 +154,14 @@ export default function ViewForm() {
               </div>
 
               {/* Gender */}
-              <div className='text-base font-serif'>
+              <div className='font-serif text-base'>
                 <strong>Gender:</strong>
                 {isEditing ? (
                   <select
                     name='gender'
                     value={formData.gender || ''}
                     onChange={handleChange}
-                    className='border rounded p-1 ml-2 w-full'
+                    className='w-full p-1 ml-2 border rounded'
                   >
                     <option value='M'>Male</option>
                     <option value='F'>Female</option>
@@ -173,14 +173,14 @@ export default function ViewForm() {
               </div>
 
               {/* Interested Course */}
-              <div className='text-base font-serif'>
+              <div className='font-serif text-base'>
                 <strong>Interested Course:</strong>
                 {isEditing ? (
                   <select
                     name='interested_course'
                     value={formData.interested_course || ''}
                     onChange={handleChange}
-                    className='border rounded p-1 ml-2 w-full'
+                    className='w-full p-1 ml-2 border rounded'
                   >
                     <option value='civil'>B.E Civil</option>
                     <option value='computer'>B.E Computer</option>
@@ -192,7 +192,7 @@ export default function ViewForm() {
               </div>
 
               {/* IOE Entrance Symbol.No */}
-              <div className='text-base font-serif'>
+              <div className='font-serif text-base'>
                 <strong>IOE Entrance Symbol.No:</strong>
                 {isEditing ? (
                   <input
@@ -200,7 +200,7 @@ export default function ViewForm() {
                     name='ioe_roll_no'
                     value={formData.ioe_roll_no || ''}
                     onChange={handleChange}
-                    className='border rounded p-1 ml-2 w-full'
+                    className='w-full p-1 ml-2 border rounded'
                   />
                 ) : (
                   ` ${formData.ioe_roll_no || 'N/A'}`
@@ -208,7 +208,7 @@ export default function ViewForm() {
               </div>
 
               {/* IOE Rank */}
-              <div className='text-base font-serif'>
+              <div className='font-serif text-base'>
                 <strong>IOE Rank:</strong>
                 {isEditing ? (
                   <input
@@ -216,7 +216,7 @@ export default function ViewForm() {
                     name='ioe_rank'
                     value={formData.ioe_rank || ''}
                     onChange={handleChange}
-                    className='border rounded p-1 ml-2 w-full'
+                    className='w-full p-1 ml-2 border rounded'
                   />
                 ) : (
                   ` ${formData.ioe_rank || 'N/A'}`
@@ -233,7 +233,7 @@ export default function ViewForm() {
                       type='file'
                       name='photo'
                       onChange={handleFileChange}
-                      className='border rounded p-1 ml-2 w-full'
+                      className='w-full p-1 ml-2 border rounded'
                     />
                   </div>
                   <div>
@@ -242,7 +242,7 @@ export default function ViewForm() {
                       type='file'
                       name='transcript'
                       onChange={handleFileChange}
-                      className='border rounded p-1 ml-2 w-full'
+                      className='w-full p-1 ml-2 border rounded'
                     />
                   </div>
                   <div>
@@ -251,7 +251,7 @@ export default function ViewForm() {
                       type='file'
                       name='migration'
                       onChange={handleFileChange}
-                      className='border rounded p-1 ml-2 w-full'
+                      className='w-full p-1 ml-2 border rounded'
                     />
                   </div>
                   <div>
@@ -260,7 +260,7 @@ export default function ViewForm() {
                       type='file'
                       name='character'
                       onChange={handleFileChange}
-                      className='border rounded p-1 ml-2 w-full'
+                      className='w-full p-1 ml-2 border rounded'
                     />
                   </div>
                 </div>
@@ -298,7 +298,7 @@ export default function ViewForm() {
 
         {isEditing ? (
           <div className='flex justify-between'>
-            <button onClick={handleCancel} className='bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded text-lg font-semibold'>
+            <button onClick={handleCancel} className='px-4 py-2 text-lg font-semibold text-white bg-red-600 rounded hover:bg-red-700'>
               Cancel
             </button>
             <button
@@ -310,14 +310,14 @@ export default function ViewForm() {
             </button>
           </div>
         ) : (
-          <div className='my-2 flex md:justify-start md:items-start justify-center items-center '>
-            <button onClick={handleEdit} className='bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded flex justify-center items-center text-lg font-semibold'>
+          <div className='flex items-center justify-center my-2 md:justify-start md:items-start '>
+            <button onClick={handleEdit} className='flex items-center justify-center px-4 py-2 text-lg font-semibold text-white bg-blue-600 rounded hover:bg-blue-700'>
             Edit
           </button>
           </div>
         )}
 
-        <div className='text-lg flex justify-center items-center my-3 text-red-600 font-semibold'>
+        <div className='flex items-center justify-center my-3 text-lg font-semibold text-red-600'>
           <Link to='/formstatus'>View your form status</Link>
         </div>
       </div>

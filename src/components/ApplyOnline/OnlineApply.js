@@ -40,7 +40,7 @@ export default function OnlineApply() {
 
   const checkSubmissionStatus = async (token) => {
     try {
-      const response = await axios.get('jec.edu.np/api/application-forms/', {
+      const response = await axios.get('https://jec.edu.np/api/application-forms/', {
         headers: {
           'Authorization': `Token ${token}`,
         },
@@ -82,7 +82,7 @@ export default function OnlineApply() {
       try {
         console.log(formData);
         const token = localStorage.getItem('authToken');
-        const response = await axios.post('jec.edu.np/api/application-forms/', formDataToSend, {
+        const response = await axios.post('https://jec.edu.np/api/application-forms/', formDataToSend, {
           headers: {
             'Content-Type': 'multipart/form-data',
             'Authorization': `Token ${token}`,
@@ -347,34 +347,35 @@ export default function OnlineApply() {
           </div>
 
           <div className='flex justify-center text-xl'>
-          {hasSubmitted ? (
-            <div className='flex space-x-4'>
-              <Link to='/viewform'>
-                <button
-                  type='button'
-                  className='px-6 py-2 font-semibold text-white bg-blue-700 rounded-lg shadow-lg'
-                >
-                  Edit Form
-                </button>
-              </Link>
-              <Link to='/formstatus'>
-                <button
-                  type='button'
-                  className='px-6 py-2 font-semibold text-white bg-blue-700 rounded-lg shadow-lg'
-                >
-                  Form Status
-                </button>
-              </Link>
-            </div>
-          ) : (
-            <button
-              type='submit'
-              className='px-6 py-2 font-semibold text-white bg-blue-700 rounded-lg shadow-lg'
-            >
-              Submit
-            </button>
-          )}
-        </div>
+  {!hasSubmitted ? (
+    <button
+      type='submit'
+      className='px-6 py-2 font-semibold text-white bg-blue-700 rounded-lg shadow-lg'
+    >
+      Submit
+    </button>
+  ) : (
+    <div className='flex space-x-4'>
+      <Link to='/viewform'>
+        <button
+          type='button'
+          className='px-6 py-2 font-semibold text-white bg-blue-700 rounded-lg shadow-lg'
+        >
+          Edit Form
+        </button>
+      </Link>
+      <Link to='/formstatus'>
+        <button
+          type='button'
+          className='px-6 py-2 font-semibold text-white bg-blue-700 rounded-lg shadow-lg'
+        >
+          Form Status
+        </button>
+      </Link>
+    </div>
+  )}
+</div>
+
         </div>
       </form>
     </div>
