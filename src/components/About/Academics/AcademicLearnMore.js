@@ -75,7 +75,7 @@ export default function AcademicLearnMore() {
 
 
       <div className='flex items-center justify-center mt-4 mb-4'>
-        <Link to="/onlineApply" className="px-4 py-2 text-[30px] text-white bg-blue-500 hover:bg-blue-700 rounded">Apply Now</Link>
+        <Link to="/applyOnline" className="px-3 py-2 text-[30px] rounded-3xl text-white bg-blue-500 hover:bg-blue-700 ">Apply Now</Link>
       </div>
     </>
   );
