@@ -13,9 +13,7 @@ export default function OnlineApply() {
     interested_course: '',
     ioe_roll_no: '',
     ioe_rank: '',
-    transcript: null,
-    migration: null,
-    character: null,
+   
     agreement: false,
   });
 
@@ -109,9 +107,7 @@ export default function OnlineApply() {
     if (!formData.interested_course) newErrors.interested_course = 'Interested Course selection is required';
     if (!formData.ioe_roll_no) newErrors.ioe_roll_no = 'IOE Roll Number is required';
     if (!formData.ioe_rank) newErrors.ioe_rank = 'IOE Rank is required';
-    if (!formData.transcript) newErrors.transcript = 'Transcript is required';
-    if (!formData.migration) newErrors.migration = 'Migration Certificate is required';
-    if (!formData.character) newErrors.character = 'Character Certificate is required';
+
     if (!formData.agreement) newErrors.agreement = 'You must agree to the declaration';
 
     setErrors(newErrors);
@@ -148,8 +144,11 @@ export default function OnlineApply() {
       <form className='space-y-8 border border-gray-400 rounded-lg shadow-md py-5 w-[94%] mx-auto px-7' onSubmit={handleSubmit}>
         <div className='flex flex-col gap-8 md:flex-row'>
           <div className='block md:w-1/2'>
-            <label className='block mb-2 text-lg font-bold' style={{ fontFamily: "'Merriweather', serif" }}>
-              FULL NAME:
+            <label className='block text-lg font-bold first-line:mb-2' style={{ fontFamily: "'Merriweather', serif" }}>
+             <span className='flex'>
+             FULL NAME: <p className='text-red-500'>*</p>
+             </span>
+             
               <input
                 type='text'
                 name='full_name'
@@ -163,7 +162,9 @@ export default function OnlineApply() {
 
             <div className='mb-4'>
               <label className='block mb-2 text-lg font-bold' style={{ fontFamily: "'Merriweather', serif" }}>
-                GENDER:
+              <span className='flex'>
+             GENDER: <p className='text-red-500'>*</p>
+             </span>
               </label>
               <div className='flex flex-col gap-4 md:flex-row'>
                 <label className='flex items-center'>
@@ -183,7 +184,9 @@ export default function OnlineApply() {
             </div>
 
             <label className='block mb-2 text-lg font-bold' style={{ fontFamily: "'Merriweather', serif" }}>
-              DATE OF BIRTH:
+            <span className='flex'>
+             DATE OF BIRTH: <p className='text-red-500'>*</p>
+             </span>
               <input
                 type='date'
                 name='date_of_birth'
@@ -198,7 +201,9 @@ export default function OnlineApply() {
 
           {/* <div className='flex flex-col items-center md:w-1/2'> */}
             <label className='mb-2 text-lg font-bold' style={{ fontFamily: "'Merriweather', serif" }}>
-              PHOTO
+            <span className='flex'>
+             PHOTO: <p className='text-red-500'>*</p>
+             </span>
               <input
                 type='file'
                 name='photo'
@@ -209,7 +214,9 @@ export default function OnlineApply() {
               {errors.photo && <p className='text-red-700'>{errors.photo}</p>}
             </label>
             <label className='block mt-3 mb-2 text-lg font-bold' style={{ fontFamily: "'Merriweather', serif" }}>
-              ADDRESS:
+            <span className='flex'>
+             ADDRESS: <p className='text-red-500'>*</p>
+             </span>
               <input
                 type='text'
                 name='address'
@@ -225,7 +232,10 @@ export default function OnlineApply() {
 
         <div className='text-left'>
           <h1 className='text-2xl font-bold text-red-700' style={{ fontFamily: "'Merriweather', serif" }}>
-            Choose The Interested interested_course
+          <span className='flex'>
+          Choose The Interested interested_course<p className='text-red-500'>*</p>
+             </span>
+         
           </h1>
           <div className='flex flex-col items-start justify-start gap-5 mt-4 md:flex-row'>
             <label className='flex'>
@@ -252,7 +262,10 @@ export default function OnlineApply() {
             <div className='flex flex-col gap-8 mt-4 md:flex-row'>
               <div className='flex flex-col w-full md:w-1/2'>
                 <label className='mb-2 text-lg font-bold'>
-                  IOE ROLL.NO
+                <span className='flex'>
+          IOE ROLL.NO<p className='text-red-500'>*</p>
+             </span>
+         
                   <input
                     type='text'
                     name='ioe_roll_no'
@@ -266,7 +279,11 @@ export default function OnlineApply() {
               </div>
               <div className='flex flex-col w-full md:w-1/2'>
                 <label className='mb-2 text-lg font-bold'>
-                  IOE RANK
+                
+                  <span className='flex'>
+                  IOE RANK<p className='text-red-500'>*</p>
+             </span>
+         
                   <input
                     type='text'
                     name='ioe_rank'
@@ -294,7 +311,7 @@ export default function OnlineApply() {
                     name='transcript'
                     onChange={handleChange}
                     className='block mt-2'
-                    required
+                    
                   />
                   {errors.transcript && <p className='text-red-700'>{errors.transcript}</p>}
                 </label>
@@ -307,7 +324,7 @@ export default function OnlineApply() {
                     name='migration'
                     onChange={handleChange}
                     className='block mt-2'
-                    required
+                  
                   />
                   {errors.migration && <p className='text-red-700'>{errors.migration}</p>}
                 </label>
@@ -320,7 +337,7 @@ export default function OnlineApply() {
                     name='character'
                     onChange={handleChange}
                     className='block mt-2'
-                    required
+                    
                   />
                   {errors.character && <p className='text-red-700'>{errors.character}</p>}
                 </label>
@@ -375,6 +392,7 @@ export default function OnlineApply() {
             </button>
           )}
         </div>
+        <p className='text-red-500'>* FIELDS ARE COMPULSORY </p>
         </div>
       </form>
     </div>
