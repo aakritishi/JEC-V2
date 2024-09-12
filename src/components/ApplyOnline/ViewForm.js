@@ -56,7 +56,7 @@ export default function ViewForm() {
     try {
       const token = localStorage.getItem('authToken');
       const formId = formData.id; // Ensure you have the form ID to update
-      const response = await axios.patch(`jec.edu.np/api/application-forms/${formId}/`, formDataToSend, {
+      const response = await axios.patch(`https://jec.edu.np/api/application-forms/${formId}/`, formDataToSend, {
         headers: {
           Authorization: `Token ${token}`,
           'Content-Type': 'multipart/form-data',

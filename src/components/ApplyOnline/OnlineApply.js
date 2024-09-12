@@ -347,35 +347,34 @@ export default function OnlineApply() {
           </div>
 
           <div className='flex justify-center text-xl'>
-  {!hasSubmitted ? (
-    <button
-      type='submit'
-      className='px-6 py-2 font-semibold text-white bg-blue-700 rounded-lg shadow-lg'
-    >
-      Submit
-    </button>
-  ) : (
-    <div className='flex space-x-4'>
-      <Link to='/viewform'>
-        <button
-          type='button'
-          className='px-6 py-2 font-semibold text-white bg-blue-700 rounded-lg shadow-lg'
-        >
-          Edit Form
-        </button>
-      </Link>
-      <Link to='/formstatus'>
-        <button
-          type='button'
-          className='px-6 py-2 font-semibold text-white bg-blue-700 rounded-lg shadow-lg'
-        >
-          Form Status
-        </button>
-      </Link>
-    </div>
-  )}
-</div>
-
+          {hasSubmitted ? (
+            <div className='flex space-x-4'>
+              <Link to='/viewform'>
+                <button
+                  type='button'
+                  className='px-6 py-2 font-semibold text-white bg-blue-700 rounded-lg shadow-lg'
+                >
+                  Edit Form
+                </button>
+              </Link>
+              <Link to='/formstatus'>
+                <button
+                  type='button'
+                  className='px-6 py-2 font-semibold text-white bg-blue-700 rounded-lg shadow-lg'
+                >
+                  Form Status
+                </button>
+              </Link>
+            </div>
+          ) : (
+            <button
+              type='submit'
+              className='px-6 py-2 font-semibold text-white bg-blue-700 rounded-lg shadow-lg'
+            >
+              Submit
+            </button>
+          )}
+        </div>
         </div>
       </form>
     </div>
