@@ -16,7 +16,7 @@ const ApplicationStatus = () => {
       return;
     }
 
-    axios.get('jec.edu.np/api/application-forms/', {
+    axios.get('https://jec.edu.np/api/application-forms/', {
       headers: {
         Authorization: `Token ${token}`,
       },
@@ -108,50 +108,50 @@ const ApplicationStatus = () => {
     <div className="flex flex-col md:flex-row">
       <Sidebar />
       <div className="flex-1 p-4 sm:p-6 overflow-x-auto ml-1 md:ml-[20%]">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-lg sm:text-2xl font-bold mb-4">Applications</h2>
+        <div className="mx-auto max-w-7xl">
+          <h2 className="mb-4 text-lg font-bold sm:text-2xl">Applications</h2>
           {/* Filter input */}
           <input
             type="text"
             value={courseFilter}
             onChange={(e) => setCourseFilter(e.target.value)}
             placeholder="Filter by Interested Course"
-            className="mb-4 p-2 border border-gray-300 rounded"
+            className="p-2 mb-4 border border-gray-300 rounded"
           />
           <div className="overflow-x-auto">
             <table className="min-w-full bg-white rounded-md shadow-md">
               <thead className="bg-gray-200">
                 <tr>
-                  <th className="px-2 py-2 text-left text-xs sm:text-sm font-semibold text-gray-900 uppercase tracking-wider">Form ID</th>
-                  <th className="px-2 py-2 text-left text-xs sm:text-sm font-semibold text-gray-900 uppercase tracking-wider">IOE Symbol No.</th>
-                  <th className="px-2 py-2 text-left text-xs sm:text-sm font-semibold text-gray-900 uppercase tracking-wider">IOE Rank</th>
-                  <th className="px-2 py-2 text-left text-xs sm:text-sm font-semibold text-gray-900 uppercase tracking-wider">Name</th>
-                  <th className="px-2 py-2 text-left text-xs sm:text-sm font-semibold text-gray-900 uppercase tracking-wider">Gender</th>
-                  <th className="px-2 py-2 text-left text-xs sm:text-sm font-semibold text-gray-900 uppercase tracking-wider">DOB</th>
-                  <th className="px-2 py-2 text-left text-xs sm:text-sm font-semibold text-gray-900 uppercase tracking-wider">Interested Programs</th>
-                  <th className="px-2 py-2 text-left text-xs sm:text-sm font-semibold text-gray-900 uppercase tracking-wider">View Detail</th>
-                  <th className="px-2 py-2 text-left text-xs sm:text-sm font-semibold text-gray-900 uppercase tracking-wider">Confirmation</th>
+                  <th className="px-2 py-2 text-xs font-semibold tracking-wider text-left text-gray-900 uppercase sm:text-sm">Form ID</th>
+                  <th className="px-2 py-2 text-xs font-semibold tracking-wider text-left text-gray-900 uppercase sm:text-sm">IOE Symbol No.</th>
+                  <th className="px-2 py-2 text-xs font-semibold tracking-wider text-left text-gray-900 uppercase sm:text-sm">IOE Rank</th>
+                  <th className="px-2 py-2 text-xs font-semibold tracking-wider text-left text-gray-900 uppercase sm:text-sm">Name</th>
+                  <th className="px-2 py-2 text-xs font-semibold tracking-wider text-left text-gray-900 uppercase sm:text-sm">Gender</th>
+                  <th className="px-2 py-2 text-xs font-semibold tracking-wider text-left text-gray-900 uppercase sm:text-sm">DOB</th>
+                  <th className="px-2 py-2 text-xs font-semibold tracking-wider text-left text-gray-900 uppercase sm:text-sm">Interested Programs</th>
+                  <th className="px-2 py-2 text-xs font-semibold tracking-wider text-left text-gray-900 uppercase sm:text-sm">View Detail</th>
+                  <th className="px-2 py-2 text-xs font-semibold tracking-wider text-left text-gray-900 uppercase sm:text-sm">Confirmation</th>
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
                 {filteredForms.map(form => (
                   <tr key={form.id}>
-                    <td className="border px-2 py-2 text-xs sm:text-sm text-black">{form.id}</td>
-                    <td className="border px-2 py-2 text-xs sm:text-sm text-black">{form.ioe_roll_no || 'N/A'}</td>
-                    <td className="border px-2 py-2 text-xs sm:text-sm text-black">{form.ioe_rank || 'N/A'}</td>
-                    <td className="border px-2 py-2 text-xs sm:text-sm text-black">{form.full_name || 'N/A'}</td>
-                    <td className="border px-2 py-2 text-xs sm:text-sm text-black">{form.gender || 'N/A'}</td>
-                    <td className="border px-2 py-2 text-xs sm:text-sm text-black">{form.date_of_birth || 'N/A'}</td>
-                    <td className="border px-2 py-2 text-xs sm:text-sm text-black">{form.interested_course || 'N/A'}</td>
-                    <td className="border px-2 py-2 text-xs sm:text-sm text-black">
+                    <td className="px-2 py-2 text-xs text-black border sm:text-sm">{form.id}</td>
+                    <td className="px-2 py-2 text-xs text-black border sm:text-sm">{form.ioe_roll_no || 'N/A'}</td>
+                    <td className="px-2 py-2 text-xs text-black border sm:text-sm">{form.ioe_rank || 'N/A'}</td>
+                    <td className="px-2 py-2 text-xs text-black border sm:text-sm">{form.full_name || 'N/A'}</td>
+                    <td className="px-2 py-2 text-xs text-black border sm:text-sm">{form.gender || 'N/A'}</td>
+                    <td className="px-2 py-2 text-xs text-black border sm:text-sm">{form.date_of_birth || 'N/A'}</td>
+                    <td className="px-2 py-2 text-xs text-black border sm:text-sm">{form.interested_course || 'N/A'}</td>
+                    <td className="px-2 py-2 text-xs text-black border sm:text-sm">
                       <button
                         onClick={() => viewDetail(form.id)}
-                        className="text-blue-600 hover:text-blue-800 text-xs sm:text-sm"
+                        className="text-xs text-blue-600 hover:text-blue-800 sm:text-sm"
                       >
                         View Detail
                       </button>
                     </td>
-                    <td className="border px-2 py-2 text-xs sm:text-sm">
+                    <td className="px-2 py-2 text-xs border sm:text-sm">
                       <div className="flex space-x-2">
                         <button
                           onClick={() => handleAccept(form.id)}

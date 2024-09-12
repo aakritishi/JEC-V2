@@ -53,26 +53,30 @@ export const IntroductionSection = () => {
           <source src={video} type="video/mp4" />
         </VideoBackground>
         <ContentWrapper>
-          <div className="w-full p-4 py-4 my-5 md:w-3/4 lg:w-1/2">
+          <div className="w-full p-4 py-4 my-5 md:w-3/4 lg:w-1/2" style={{ fontFamily: "'Merriweather', serif" }}>
             <h1 className="text-3xl font-semibold md:text-4xl" style={{ fontFamily: "'Merriweather', serif" }}>
               JANAKPUR ENGINEERING COLLEGE
             </h1>
             <p className="mt-4 mb-6 text-lg">
               Janakpur Engineering is a leading research university pushing boundaries and frontiers to brighten the future of the students.
             </p>
-            {/* {isLoggedIn && !isStaff ? (
+
+            
+         
+
+             {isLoggedIn && !isStaff ? (
               <Link to='/onlineapply'>
-                <button className="px-3 py-2 text-xl font-semibold border border-black rounded-lg hover:bg-blue-500 hover:text-white">
-                  Apply Online
-                </button>
+               
               </Link>
             ) : !isLoggedIn ? (
               <Link to='/login'>
-                <button className="px-3 py-2 text-xl font-semibold border border-black rounded-lg hover:bg-blue-500 hover:text-white">
-                  Login
-                </button>
+                 <p className="mt-4 mb-6 text-3xl font-bold text-green-400" >
+            
+            Login to Open the Form
+          
+          </p>
               </Link>
-            ) : null} */}
+            ) : null} 
           </div>
         </ContentWrapper>
       </header>

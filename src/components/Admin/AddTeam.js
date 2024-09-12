@@ -34,7 +34,7 @@ export class AddTeam extends Component {
     formDataObj.append("subject", formData.subject);
     formDataObj.append("faculty", formData.faculty);
 
-    axios.post('jec.edu.np/api/teachers/', formDataObj, {
+    axios.post('https://jec.edu.np/api/teachers/', formDataObj, {
       headers: {
         "Content-Type": "multipart/form-data",
         Authorization: `Token ${token}`, 
@@ -57,53 +57,53 @@ export class AddTeam extends Component {
       <div className="">
         <Sidebar />
         <div className="flex-1 p-6">
-          <h1 className="text-3xl md:text-xl lg:text-2xl text-red-600 font-bold text-center mb-6 transition-all duration-500 hover:text-red-800">
+          <h1 className="mb-6 text-3xl font-bold text-center text-red-600 transition-all duration-500 md:text-xl lg:text-2xl hover:text-red-800">
             Add Team
           </h1>
           <div className="max-w-lg mx-auto">
             <form onSubmit={this.handleSubmit}>
-              <div className="bg-white p-6 rounded-lg shadow-lg">
+              <div className="p-6 bg-white rounded-lg shadow-lg">
                 <div className="flex flex-col">
-                  <label className="text-lg font-bold mb-2">
+                  <label className="mb-2 text-lg font-bold">
                     Add Photo
                     <input
                       type="file"
                       name="photo"
                       onChange={this.handleChange}
-                      className="block px-4 py-2 mt-2 w-full border border-blue-600 rounded-lg"
+                      className="block w-full px-4 py-2 mt-2 border border-blue-600 rounded-lg"
                       required
                     />
                     {errors.photo && <p className="text-red-700">{errors.photo}</p>}
                   </label>
-                  <label className="block text-lg font-bold mb-2 mt-3">
+                  <label className="block mt-3 mb-2 text-lg font-bold">
                     Teacher's Name:
                     <input
                       type="text"
                       name="name"
                       value={formData.name}
                       onChange={this.handleChange}
-                      className="block w-full border border-blue-700 rounded-lg px-4 py-2 mt-2"
+                      className="block w-full px-4 py-2 mt-2 border border-blue-700 rounded-lg"
                       required
                     />
                     {errors.name && <p className="text-red-700">{errors.name}</p>}
                   </label>
-                  <label className="block text-lg font-bold mb-2 mt-3">
+                  <label className="block mt-3 mb-2 text-lg font-bold">
                     Subject:
                     <input
                       type="text"
                       name="subject"
                       value={formData.subject}
                       onChange={this.handleChange}
-                      className="block w-full border border-blue-700 rounded-lg px-4 py-2 mt-2"
+                      className="block w-full px-4 py-2 mt-2 border border-blue-700 rounded-lg"
                       required
                     />
                     {errors.subject && <p className="text-red-700">{errors.subject}</p>}
                   </label>
-                  <div className="text-center mt-4">
+                  <div className="mt-4 text-center">
                     <h2 className="text-2xl font-bold text-red-700">
                       Choose the Faculty
                     </h2>
-                    <div className="flex flex-col md:flex-row items-center justify-center mt-4 gap-5">
+                    <div className="flex flex-col items-center justify-center gap-5 mt-4 md:flex-row">
                       <label className="flex items-center">
                         <input
                           type="radio"

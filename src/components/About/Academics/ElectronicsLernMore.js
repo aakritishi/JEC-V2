@@ -73,12 +73,13 @@ export default function EletronicsLearnMore() {
 
 
           <div className='flex items-center justify-center mt-4 mb-4'>
-  <Link 
-    to="/applyOnline" 
-    className="px-6 py-3 text-lg font-semibold text-white transition-transform transform bg-blue-600 rounded-lg shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:scale-95"
-  >
-    Apply Now
-  </Link>
+          <Link to='/applyOnline'>
+                <button
+                    className="px-4 py-2 text-sm text-white transition duration-300 bg-blue-600 rounded-lg shadow-md md:text-base hover:bg-blue-700 hover:shadow-lg focus:outline-none"
+                >
+                    Apply Online
+                </button>
+            </Link>
 </div>
 
     </>
