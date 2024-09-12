@@ -147,11 +147,13 @@ export default function FormStatus() {
               </table>
             </div>
           )}
-          {/* <div className="mt-8 text-center">
+
+          <div className="mt-8 text-center">
             <button type="button" onClick={handlePrint} className="px-4 py-2 text-white bg-blue-600 rounded">
               Print
             </button>
-          </div> */}
+         <p className='pt-4 font-bold text-red-600'>  NOTE:PLEASE BRING THE COLOR PRINTED FORM DURING THE TIME OF ADMISSION.</p> 
+          </div>
         </div>
       </div>
       <style jsx>{`
@@ -175,7 +177,7 @@ export default function FormStatus() {
             position: absolute;
             top: 0;
             right: 0;
-            width: 150px; /* Adjust as needed */
+            width: 200px; /* Adjust as needed */
           }
           .text-center {
             display: none;
