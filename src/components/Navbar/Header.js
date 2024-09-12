@@ -27,7 +27,7 @@ export const Header = () => {
             const token = localStorage.getItem('authToken');
             if (token) {
                 try {
-                    const response = await axios.get('jec.edu.np/api/accounts/user/', {
+                    const response = await axios.get('https://jec.edu.np/api/accounts/user/', {
                         headers: {
                             'Authorization': `Token ${token}`,
                         },
@@ -93,7 +93,7 @@ export const Header = () => {
     {/* Conditional rendering for Apply Online and Login buttons */}
     <div className="flex items-center gap-4">
         {isLoggedIn ? (
-            <Link to='/onlineApply'>
+            <Link to='/applyOnline'>
                 <button
                     className="px-4 py-2 text-sm text-white transition duration-300 bg-blue-600 rounded-lg shadow-md md:text-base hover:bg-blue-700 hover:shadow-lg focus:outline-none"
                 >
