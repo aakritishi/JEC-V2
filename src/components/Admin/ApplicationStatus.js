@@ -46,7 +46,7 @@ const ApplicationStatus = () => {
       return;
     }
 
-    axios.patch(`jec.edu.np/api/application-forms/${formId}/`,
+    axios.patch(`https://jec.edu.np/api/application-forms/${formId}/`,
       { action: 'accepted' },
       {
         headers: {
@@ -71,7 +71,7 @@ const ApplicationStatus = () => {
       return;
     }
 
-    axios.patch(`jec.edu.np/api/application-forms/${formId}/`,
+    axios.patch(`https://jec.edu.np/api/application-forms/${formId}/`,
       { action: 'rejected' },
       {
         headers: {
