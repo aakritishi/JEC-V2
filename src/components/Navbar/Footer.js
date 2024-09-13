@@ -59,7 +59,7 @@ export default function Footer() {
               <h1 className='text-2xl font-bold mb-4'>Contact Details</h1>
               <div className='flex flex-col gap-3'>
                 <p>Kupondole, Lalitpur, Nepal</p>
-                <p>Phone: 01-5555555</p>
+                <p>Phone: 01-5435822</p>
                 <p>Email: info@jec.edu.np</p>
               </div>
             </div>
